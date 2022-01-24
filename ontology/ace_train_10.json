@@ -1,0 +1,63 @@
+{
+    "Conflict:Attack": [
+        "Attacker",
+        "Place",
+        "Target",
+        "Instrument",
+        "Victim",
+        "Agent"
+    ],
+    "Contact:Meet": [
+        "Place",
+        "Entity"
+    ],
+    "Contact:Phone-Write": [
+        "Entity",
+        "Place"
+    ],
+    "Life:Die": [
+        "Victim",
+        "Place",
+        "Agent",
+        "Instrument",
+        "Person"
+    ],
+    "Life:Injure": [
+        "Victim",
+        "Instrument",
+        "Agent",
+        "Place"
+    ],
+    "Movement:Transport": [
+        "Destination",
+        "Artifact",
+        "Origin",
+        "Agent",
+        "Vehicle",
+        "Victim",
+        "Place"
+    ],
+    "Personnel:Elect": [
+        "Person",
+        "Place",
+        "Entity"
+    ],
+    "Personnel:End-Position": [
+        "Person",
+        "Place",
+        "Entity"
+    ],
+    "Transaction:Transfer-Money": [
+        "Giver",
+        "Recipient",
+        "Beneficiary",
+        "Place"
+    ],
+    "Transaction:Transfer-Ownership": [
+        "Beneficiary",
+        "Seller",
+        "Artifact",
+        "Buyer",
+        "Place"
+    ]
+}
