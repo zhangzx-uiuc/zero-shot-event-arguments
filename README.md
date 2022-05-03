@@ -17,7 +17,14 @@ During testing, we directly classify each trigger-entity pair as its nearest rol
 Please use `pip install -r requirements.txt` to install python dependencies.
 
 ## File Structure
-
++ `./checkpoints`: stores the trained model checkpoints
++ `./data`: stores training and testing data (from ACE-05)
++ `./ontology`: stores the training and testing types definition in `.json` format.
++ `data.py`: implementation of dataset and dataloader objects for training neural network models.
++ `model.py`: the core implementation of zero-shot event argument extraction model.
++ `eval.py`: Python script for evaluation and computing scores.
++ `predict.py`: Heuristic entity extraction for predicting the arguments.
++ `utils.py`: Utility functions like canculating averaged embeddings for each word span.
 
 ## Usage
 `python train.py --name RUN_NAME --train_types ace_train_10 --test_types ace_test_23 --gpu 0`
