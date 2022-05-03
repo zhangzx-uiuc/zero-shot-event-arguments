@@ -27,4 +27,21 @@ Please use `pip install -r requirements.txt` to install python dependencies.
 + `utils.py`: Utility functions like canculating averaged embeddings for each word span.
 
 ## Usage
+Please run the `train.py` for training and testing zero-shot event argument extraction models. Important command line arguments:
++ `--epochs`: maximum number of training epochs.
++ `--batch`: training batch size.
++ `--alpha`: hyperparameter for negative loss.
++ `--lr`: learning rate.
++ `--gpu`: GPU device id to train the model on.
++ `--train_types`: the file name defining the training ontology, e.g., `ace_train_10` denotes the ontology file at `./ontology/ace_train_10.json`.
++ `--test_types`: the file name defining the testing ontology, e.g., `ace_test_23` denotes the ontology file at `./ontology/ace_test_23.json`.
+
++ `--train_data`: the file name defining the training data, e.g., `train` denotes the ontology file at `./data/train.json`.
++ `--test_data`: the file name defining the testing data, e.g., `test` denotes the ontology file at `./data/test.json`.
+
++ `--eval`: if this argument is set, the model will only run evaluation on `--save_dir`.
++ `--save_dir`: model save directory, defaultly set as `./checkpoints`.
++ `--name`: the name of this experiment.
+
+### Example usage:
 `python train.py --name RUN_NAME --train_types ace_train_10 --test_types ace_test_23 --gpu 0`
