@@ -26,6 +26,9 @@ Please use `pip install -r requirements.txt` to install python dependencies.
 + `predict.py`: Heuristic entity extraction for predicting the arguments.
 + `utils.py`: Utility functions like canculating averaged embeddings for each word span.
 
+## Data Format
+
+
 ## Usage
 Please run the `train.py` for training and testing zero-shot event argument extraction models. Important command line arguments:
 + `--epochs`: maximum number of training epochs.
