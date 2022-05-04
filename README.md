@@ -27,8 +27,37 @@ Please use `pip install -r requirements.txt` to install python dependencies.
 + `utils.py`: Utility functions like canculating averaged embeddings for each word span.
 
 ## Ontology File Format
+For the data format of ontology definition files in `./ontology`, we use the `.json` format for event types and event argument role names. An example ontology file could be:
+```
+{
+    "Justice:Pardon": [
+        "Defendant",
+        "Adjudicator",
+        "Place"
+    ],
+    "Justice:Extradite": [
+        "Destination",
+        "Origin",
+        "Person",
+        "Agent"
+    ],
+    ...
+}
+```
+This file defines two event types: `Justice:Pardon (Defendant, Adjudicator, Place)` and `Justice:Extradite (Destination, Origin, Person, Agent)`.
 
 ## Training and Testing Data Format
+We also use `.json` format for training and testing data. An example `.json` item of data is:
+```
+{"doc_id": 967, "sent_id": "967-13", "sentence": "The Khartoum Monitor may not appear for two months and must pay a fine of 1 million Sudanese pounds ( about US$ 400 ) , lawyer Ngor Olang Ngor told The Associated Press .", "entities": [[4, 20, "Khartoum Monitor", "ORG"], [84, 92, "Sudanese", "GPE"], [120, 126, "lawyer", "PER"], [127, 142, "Ngor Olang Ngor", "PER"], [152, 168, "Associated Press", "ORG"]], "triggers": [[66, 70, "fine", "Justice:Fine"]], "roles": [[[66, 70], [4, 20], "Justice:Fine", "Entity"], [[66, 70], [84, 92], "Justice:Fine", "unrelated object"], [[66, 70], [120, 126], "Justice:Fine", "unrelated object"], [[66, 70], [127, 142], "Justice:Fine", "unrelated object"], [[66, 70], [152, 168], "Justice:Fine", "unrelated object"]]}
+```
+Here are the meanings for each field in the json item:
++ `doc_id`: Document IDs.
++ `sent_id`: Sentence IDs.
++ `sentence`: The original sentence without tokenization.
++ `entities`: a `List` of `4-tuple`s, where each `4-tuple` is an entity mention in the sentence, composed of `start_offset_index`, `end_offset_index`, `entity_text` and `entity_type` respectively.
++ `triggers`: a `List` of `4-tuple`s, where each `4-tuple` is an event trigger mention in the sentence, composed of `start_offset_index`, `end_offset_index`, `trigger_text` and `event_type` respectively.
++ `roles`: a `List` of `4-tuple`s, where each `4-tuple` is an event argument role mention in the sentence, composed of `start_span`, `end_span`, `event_type` and `role_type` respectively.
 
 ## Usage
 Please run the `train.py` for training and testing zero-shot event argument extraction models. Important command line arguments:
